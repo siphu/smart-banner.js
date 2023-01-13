@@ -23,7 +23,8 @@ const SmartBanner = (props) => {
             if(isAndroid && android) {
                 window.location = android.intent || android.store;
             } else if(isIOS && ios) {
-                makeWorker(ios.intent);
+                if(ios.intent)
+                    makeWorker(ios.intent);
                 makeWorker(ios.store,10);
             } else {
                 console.error('[Smart Banner]','Not a mobile device');
