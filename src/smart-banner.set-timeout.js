@@ -13,7 +13,7 @@ const SmartBanner = (props) => {
                 window.location = android.intent || android.store;
             } else if(isIOS && ios) {
                 const openApp = async () => { if (ios.intent) setTimeout(()=>{ window.location = ios.intent;  },10); };
-                const openStore = async () => {  setTimeout(()=>{ window.location = ios.store; },20); };
+                const openStore = async () => {  setTimeout(()=>{ window.location = ios.store; },2000); };
                 Promise.all([openStore(), openApp()]);
             } else {
                 console.error('[Smart Banner]','Not a mobile device');
