@@ -1,11 +1,6 @@
 # smart-banner.js
 Simple Smart Banner script to redirect app to either the application (if installed) or the store.
-
-## smart-banner vs smart-banner.set-timeout
-`smart-banner.js` and `smart-banner.set-timeout.js` will do the same thing.  
-1 uses `Worker` for threading, and the other uses `setTimeout`.
-
-  
+ 
 ## Usage
 ```javascript
     SmartBanner({
