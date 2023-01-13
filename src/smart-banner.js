@@ -25,7 +25,7 @@ const SmartBanner = (props) => {
             } else if(isIOS && ios) {
                 if(ios.intent)
                     makeWorker(ios.intent);
-                makeWorker(ios.store,10);
+                makeWorker(ios.store,2000);
             } else {
                 console.error('[Smart Banner]','Not a mobile device');
             }
