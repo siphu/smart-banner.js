@@ -28,7 +28,7 @@ Simple Smart Banner script to redirect app to either the application (if install
 | view_element | element to bind onclick to to trigger the link. typically on an `<a>` element | 
 | ios.store | URL to Apple Store App |
 | ios.intent | `*Optional*` URL Schema that is registered with the app. This will be used to attempt to open the app |
-| android.intent | `*Optional*` URL to Play Store App |
+| android.store | URL to Play Store App |
 | android.intent | `*Optional*` Intent URL that is registered with the app. |
 
 
