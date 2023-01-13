@@ -12,7 +12,7 @@ const SmartBanner = (props) => {
             if(isAndroid && android) {
                 window.location = android.intent || android.store;
             } else if(isIOS && ios) {
-                const openApp = async () => {  setTimeout(()=>{ window.location = ios.intent;  },10); };
+                const openApp = async () => { if (ios.intent) setTimeout(()=>{ window.location = ios.intent;  },10); };
                 const openStore = async () => {  setTimeout(()=>{ window.location = ios.store; },20); };
                 Promise.all([openStore(), openApp()]);
             } else {
