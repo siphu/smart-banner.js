@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" />
+  <title>detect-app-install</title>
+    <style>
+    @keyframes smart-banner-animation { from { margin-bottom: -100%; } to { margin-bottom: 0%; } }
+    div.smart-banner-wrapper {
+        position: absolute;
+        height: 100px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow:hidden;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+    div.smart-banner-wrapper .smart-banner-content {
+        animation: 1s smart-banner-animation;
+        position:absolute;
+        width: 100%;
+        height:100%;
+        bottom:0;
+        left: 0;
+        right: 0;
+        overflow-y: hidden;
+        background-color: grey;
+        margin-bottom:0;
+    }
+    div.flex-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        height: 100%;
+    }
+</style>
+</head>
+
+<body>     
+    <div class="smart-banner-wrapper">
+        <div class="smart-banner-content">
+            <div class="flex-box">
+                <a href="#" id="smart-banner-view-link">View</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./smart-banner.js"></script>
+<script>
+(()=>{
+    
+    SmartBanner({
+        view_element: document.getElementById('smart-banner-view-link'),
+        ios: {
+            store: 'https://apps.apple.com/us/app/whatsapp-messenger/id310633997',
+            intent: 'whatsapp://'
+        },
+        android: {
+            store: 'https://play.google.com/store/apps/details?id=com.whatsapp',
+            intent: 'intent://#Intent;scheme=whatsapp;package=com.whatsapp;end'
+        }
+    });
+
+   /* Detect if user agent is either apple or android device to trigger the view */
+    if((
+        navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false ) || 
+        navigator.userAgent.toLowerCase().indexOf("android") > -1
+    ) { 
+        document.getElementsByClassName('smart-banner-wrapper')[0].style.display = 'block';
+    }
+
+})();
+</script>
+</html>
